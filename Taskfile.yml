@@ -1,0 +1,48 @@
+version: "3"
+
+vars:
+  IMAGE: localhost/mythos:local
+  RUN: podman run --rm --init --userns=keep-id --hostname mythos -e HOME=/tmp -v {{.ROOT_DIR}}:/work:Z -w /work
+  PORT: '{{.PORT | default "5174"}}'
+
+tasks:
+  loopback:
+    desc: Fails if any port is published beyond 127.0.0.1 (a dependency of every task, via image)
+    cmds:
+      - scripts/check-loopback.sh
+
+  image:
+    desc: Build the one image (the dependencies); rebuilt when the lock changes
+    deps: [loopback]
+    sources: [Containerfile, package.json, package-lock.json]
+    cmds:
+      - scripts/build-image.sh {{.IMAGE}} -f Containerfile .
+
+  dev:
+    desc: "The site on http://localhost:{{.PORT}}, reloading on every edit"
+    deps: [image]
+    cmds:
+      - "{{.RUN}} -it --name mythos-dev -e DEV_URL=http://localhost:{{.PORT}}/ -p 127.0.0.1:{{.PORT}}:5173 {{.IMAGE}} vite --host mythos --port 5173 --strictPort"
+
+  check:
+    desc: Lint and format check, typecheck, tests and the production build
+    deps: [image]
+    cmds:
+      - "{{.RUN}} {{.IMAGE}} sh -c 'biome ci . && tsc -p . && vitest run && vite build --emptyOutDir'"
+
+  fmt:
+    desc: Format and apply the safe lint fixes
+    deps: [image]
+    cmds:
+      - "{{.RUN}} {{.IMAGE}} biome check --write ."
+
+  build:
+    desc: The static site in dist/
+    deps: [image]
+    cmds:
+      - "{{.RUN}} {{.IMAGE}} vite build --emptyOutDir"
+
+  add:
+    desc: "Add dependencies at their latest release, pinned exactly: task add -- [-D] <package>…"
+    cmds:
+      - "{{.RUN}} mirror.gcr.io/library/node:26.13.0-trixie-slim npm install --package-lock-only --save-exact --no-audit --no-fund {{.CLI_ARGS}}"
