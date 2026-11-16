@@ -1,8 +1,9 @@
-# mythos
+# MythoScope
 
-Доказательный справочник мифов: an evidence-based reference of folk and household remedies. For
+MythoScope (доказательный справочник мифов): an evidence-based reference of folk and household remedies. For
 each myth it gives the risk by age, what really happens, what to do instead, and a message to send
-to the family chat. A static site with no server and no third-party requests.
+to the family chat. A static site with no server and no third-party requests; it carries a web
+manifest and icons (`public/`), so a phone or a desktop browser can install it under its name.
 
 ## Running it
 

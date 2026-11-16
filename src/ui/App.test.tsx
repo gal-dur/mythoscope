@@ -19,9 +19,7 @@ const rows = () => document.querySelectorAll(".cards .row");
 
 test("the home page leads to the list of every myth", () => {
   render(<App />);
-  expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
-    "Доказательный справочник мифов",
-  );
+  expect(screen.getByRole("heading", { level: 1 }).textContent).toBe("MythoScope");
   browse();
   expect(rows()).toHaveLength(61);
   expect(window.location.hash).toBe("#myths");

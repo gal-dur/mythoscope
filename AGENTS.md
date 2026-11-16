@@ -1,4 +1,4 @@
-# mythos
+# MythoScope
 
 See `README.md` for the layout and the commands. `task check` is the definition of green.
 

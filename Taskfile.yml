@@ -1,8 +1,8 @@
 version: "3"
 
 vars:
-  IMAGE: localhost/mythos:local
-  RUN: podman run --rm --init --userns=keep-id --hostname mythos -e HOME=/tmp -v {{.ROOT_DIR}}:/work:Z -w /work
+  IMAGE: localhost/mythoscope:local
+  RUN: podman run --rm --init --userns=keep-id --hostname mythoscope -e HOME=/tmp -v {{.ROOT_DIR}}:/work:Z -w /work
   PORT: '{{.PORT | default "5174"}}'
 
 tasks:
@@ -22,7 +22,7 @@ tasks:
     desc: "The site on http://localhost:{{.PORT}}, reloading on every edit"
     deps: [image]
     cmds:
-      - "{{.RUN}} -it --name mythos-dev -e DEV_URL=http://localhost:{{.PORT}}/ -p 127.0.0.1:{{.PORT}}:5173 {{.IMAGE}} vite --host mythos --port 5173 --strictPort"
+      - "{{.RUN}} -it --name mythoscope-dev -e DEV_URL=http://localhost:{{.PORT}}/ -p 127.0.0.1:{{.PORT}}:5173 {{.IMAGE}} vite --host mythoscope --port 5173 --strictPort"
 
   check:
     desc: Lint and format check, typecheck, tests and the production build

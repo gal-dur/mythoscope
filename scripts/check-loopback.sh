@@ -2,7 +2,7 @@
 # Fails if anything in the repository could bind or publish beyond this machine's loopback.
 #
 # Nothing binds every interface, not even inside the container. A server binds 127.0.0.1, or,
-# when a published port must reach it, `mythos`: the Taskfile gives every container that
+# when a published port must reach it, `mythoscope`: the Taskfile gives every container that
 # hostname, podman resolves it to the container's own address, and that address is reached
 # only through a 127.0.0.1:HOST:CONTAINER publication. Host networking is banned outright.
 # Runs before every image build (Taskfile `loopback`, a dependency of `image`).
@@ -23,7 +23,7 @@ found=$(git ls-files --cached --others --exclude-standard \
         -e '\.listen\( *[A-Za-z0-9_]+ *\)' \
         2>/dev/null \
     | sed -E -e 's/(-p|--publish)[ =]+127\.0\.0\.1:[^ ]+//g' \
-        -e 's/--host[ =]+(127\.0\.0\.1|mythos)//g' \
+        -e 's/--host[ =]+(127\.0\.0\.1|mythoscope)//g' \
     | grep -E \
         -e "$any" \
         -e "([\"'])::\\1|\[::\]" \
@@ -33,7 +33,7 @@ found=$(git ls-files --cached --others --exclude-standard \
         -e '\.listen\( *[A-Za-z0-9_]+ *\)' || true)
 
 if [ -n "$found" ]; then
-    echo "LOOPBACK CHECK FAILED: bind 127.0.0.1 (or mythos in the container), publish -p 127.0.0.1:HOST:CONTAINER" >&2
+    echo "LOOPBACK CHECK FAILED: bind 127.0.0.1 (or mythoscope in the container), publish -p 127.0.0.1:HOST:CONTAINER" >&2
     echo "$found" >&2
     exit 1
 fi
