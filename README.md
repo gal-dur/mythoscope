@@ -45,4 +45,4 @@ src/
 ## Publishing
 
 Every push to `main` runs `.github/workflows/pages.yml`: the same checks as `task check`, in the
-same image, then `dist/` goes to GitHub Pages at <https://gal-dur.github.io/mythoscope/>.
+same image, then `dist/` goes to GitHub Pages at <https://mythoscope.ch/>.
