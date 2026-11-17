@@ -6,7 +6,7 @@ const everything = { ...noFilters, age: "infant", query: "" } as const;
 
 test("every myth has its own number", () => {
   expect(new Set(myths.map((myth) => myth.id)).size).toBe(myths.length);
-  expect(myths).toHaveLength(61);
+  expect(myths).toHaveLength(62);
 });
 
 test("every myth cites at least one source, and says what to do instead", () => {
@@ -27,12 +27,12 @@ test("the list opens with the most common and dangerous myths", () => {
   expect(select(myths, everything).map((myth) => myth.id)).toEqual([
     4, 16, 19, 20, 1, 6, 13, 17, 18, 21, 22, 27, 33, 42, 44, 3, 10, 11, 12, 51, 5, 7, 14, 31, 32,
     35, 38, 50, 8, 9, 15, 24, 30, 43, 45, 46, 47, 48, 49, 53, 57, 58, 59, 39, 41, 56, 2, 40, 25, 28,
-    29, 34, 52, 55, 60, 23, 54, 26, 36, 37, 61,
+    29, 34, 52, 55, 60, 23, 54, 26, 36, 37, 61, 62,
   ]);
 });
 
 test("the filters count what the reference holds", () => {
   expect(select(myths, { ...everything, risk: "danger" })).toHaveLength(28);
-  expect(select(myths, { ...everything, section: "cause" })).toHaveLength(10);
+  expect(select(myths, { ...everything, section: "cause" })).toHaveLength(11);
   expect(select(myths, { ...everything, query: "чеснок" }).map((myth) => myth.id)).toEqual([3, 2]);
 });

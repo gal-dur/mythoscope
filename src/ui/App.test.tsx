@@ -21,7 +21,7 @@ test("the home page leads to the list of every myth", () => {
   render(<App />);
   expect(screen.getByRole("heading", { level: 1 }).textContent).toBe("MythoScope");
   browse();
-  expect(rows()).toHaveLength(61);
+  expect(rows()).toHaveLength(62);
   expect(window.location.hash).toBe("#myths");
 });
 
@@ -30,7 +30,7 @@ test("a search narrows the list and says by how much", () => {
   browse();
   fireEvent.change(screen.getByRole("searchbox"), { target: { value: "чеснок" } });
   expect(rows()).toHaveLength(2);
-  expect(screen.getByText(/Показано: 2 из 61/)).toBeTruthy();
+  expect(screen.getByText(/Показано: 2 из 62/)).toBeTruthy();
 });
 
 test("a myth opens in the reader under its own address, and closes back to the list", () => {
@@ -40,7 +40,7 @@ test("a myth opens in the reader under its own address, and closes back to the l
   const title = first.querySelector(".rt")?.textContent ?? "";
   fireEvent.click(first);
   expect(window.location.hash).toMatch(/^#myth-\d+$/);
-  expect(screen.getByText("1 из 61")).toBeTruthy();
+  expect(screen.getByText("1 из 62")).toBeTruthy();
   expect(screen.getByRole("heading", { level: 3, name: title })).toBeTruthy();
   fireEvent.keyDown(window, { key: "Escape" });
   expect(document.querySelector(".reader")).toBeNull();
@@ -65,6 +65,6 @@ test("a returning reader lands on the list, with the age chosen last time", () =
   window.localStorage.setItem("seen", "1");
   window.localStorage.setItem("age", "preg");
   render(<App />);
-  expect(rows()).toHaveLength(61);
+  expect(rows()).toHaveLength(62);
   expect(screen.getByRole("button", { name: "Берем." }).getAttribute("aria-pressed")).toBe("true");
 });

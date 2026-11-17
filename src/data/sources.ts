@@ -493,6 +493,25 @@ export const sources = {
     title: "Памятка для врачей по внутривенному железу по итогам процедуры EMA (HPRA)",
     url: "https://assets.hpra.ie/products/Human/23247/3139df3a-e859-45c7-a89e-48fa6ce919af.pdf",
   },
+  staph: {
+    title: "CDC, основные сведения об устойчивом золотистом стафилококке (MRSA)",
+    url: "https://www.cdc.gov/mrsa/about/index.html",
+  },
+  cat1: {
+    title:
+      "Bierowiec и соавт., золотистый стафилококк у здоровых домашних кошек (BioMed Research International, 2016)",
+    url: "https://pubmed.ncbi.nlm.nih.gov/27766257/",
+  },
+  cat2: {
+    title:
+      "Cotter и соавт., носительство MRSA у питомцев в домах с больным человеком (Veterinary Dermatology, 2023)",
+    url: "https://pubmed.ncbi.nlm.nih.gov/36331035/",
+  },
+  cat3: {
+    title:
+      "Loeffler и Lloyd, домашние животные как резервуар MRSA: обзор (Epidemiology and Infection, 2010)",
+    url: "https://pubmed.ncbi.nlm.nih.gov/20056014/",
+  },
 } satisfies Record<string, Source>;
 
 export type SourceId = keyof typeof sources;
