@@ -1,0 +1,44 @@
+# Checks the site and publishes dist/ to GitHub Pages on every push to main.
+# The build runs in the project's own image, with the same command as `task check`.
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build the image
+        run: docker build -t mythoscope -f Containerfile .
+      - name: Check and build
+        run: >
+          docker run --rm --init --user "$(id -u):$(id -g)" -e HOME=/tmp
+          -v "$PWD:/work" -w /work mythoscope
+          sh -c 'biome ci . && tsc -p . && vitest run && vite build --emptyOutDir'
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

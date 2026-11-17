@@ -41,3 +41,8 @@ src/
   events in `src/state/state.test.ts`.
 - **Addresses**: `#myths` is the list and `#myth-12-cause-danger-infant` is a myth with the
   selection it was shared under. The address is a function of the state (`state/fragment.ts`).
+
+## Publishing
+
+Every push to `main` runs `.github/workflows/pages.yml`: the same checks as `task check`, in the
+same image, then `dist/` goes to GitHub Pages at <https://gal-dur.github.io/mythoscope/>.
