@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { mythFragment, routeOf, selectionFromTokens, selectionTokens } from "./link";
+import { mythFragment, routeOf, selectionFromTokens, selectionTokens, studyFragment } from "./link";
 import { noFilters, type Selection } from "./select";
 
 const plain: Selection = { ...noFilters, age: "child", query: "" };
@@ -47,4 +47,9 @@ test("an address that names nothing known is the home page", () => {
   expect(routeOf("#myths")).toEqual({ kind: "list" });
   expect(routeOf("#myth-x")).toEqual({ kind: "home" });
   expect(routeOf("#elsewhere")).toEqual({ kind: "home" });
+});
+
+test("an address names a source's retelling, with or without the myth it was opened from", () => {
+  expect(routeOf("#study-cat1")).toEqual({ kind: "study", id: "cat1", myth: null });
+  expect(routeOf(`#${studyFragment("cat1", 62)}`)).toEqual({ kind: "study", id: "cat1", myth: 62 });
 });

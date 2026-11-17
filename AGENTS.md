@@ -13,3 +13,6 @@ See `README.md` for the layout and the commands. `task check` is the definition 
 - The medical content in `src/data` is the author's. Do not reword, add or remove a claim, a risk
   level or a source without being asked.
 - No request leaves the page: fonts are bundled, and no analytics or third-party scripts are added.
+- `studies/<source key>.md` retells one cited source in plain words, in the fixed structure
+  `src/data/studies.test.ts` enforces. Read the source in full before writing one; state nothing
+  the source does not.

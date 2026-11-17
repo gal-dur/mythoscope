@@ -8,6 +8,7 @@ import { integrative } from "./integrative";
 import { pharmacyHabits } from "./pharmacy-habits";
 import type { MythRecord } from "./record";
 import { sources } from "./sources";
+import { hasStudy } from "./studies";
 import { treatments } from "./treatments";
 
 const records: readonly MythRecord[] = [
@@ -24,5 +25,5 @@ const records: readonly MythRecord[] = [
 /** Every myth in the reference, in no particular order, each with the sources it cites. */
 export const myths: readonly Myth[] = records.map((record) => ({
   ...record,
-  sources: record.sources.map((id) => sources[id]),
+  sources: record.sources.map((id) => ({ ...sources[id], id, study: hasStudy(id) })),
 }));

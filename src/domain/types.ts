@@ -30,6 +30,13 @@ export interface Source {
   readonly url: string;
 }
 
+/** A source as a myth cites it. */
+export interface Cited extends Source {
+  readonly id: string;
+  /** Whether the reference has its own plain-words retelling of this source. */
+  readonly study: boolean;
+}
+
 export interface Myth {
   readonly id: number;
   readonly part: string;
@@ -42,5 +49,5 @@ export interface Myth {
   readonly instead: readonly string[];
   readonly message: string;
   readonly evidence: readonly Evidence[];
-  readonly sources: readonly Source[];
+  readonly sources: readonly Cited[];
 }

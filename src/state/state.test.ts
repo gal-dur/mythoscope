@@ -7,7 +7,15 @@ import { type Event, initialState, nextStateOver, type State } from "./state";
 const myths = [
   mythOf(1, { prevalence: 3, levels: { infant: "critical" }, title: "Мёд до года" }),
   mythOf(2, { prevalence: 2, levels: { infant: "high" }, section: "cause", title: "Сквозняк" }),
-  mythOf(3, { prevalence: 1, levels: { adult: "moderate" }, title: "Чеснок в нос" }),
+  mythOf(3, {
+    prevalence: 1,
+    levels: { adult: "moderate" },
+    title: "Чеснок в нос",
+    sources: [
+      { id: "garlic", title: "О чесноке", url: "https://example.org/garlic", study: true },
+      { id: "bare", title: "Без пересказа", url: "https://example.org/bare", study: false },
+    ],
+  }),
 ];
 const nextState = nextStateOver(myths);
 const arriving = (fragment = "", seen = false): State =>
@@ -123,4 +131,43 @@ test("resetting the filters keeps the search and the age", () => {
 test("stopping when nothing is being read changes nothing", () => {
   const state = arriving("#myths");
   expect(after(state, { kind: "stopReading" })).toBe(state);
+});
+
+test("a source's retelling opens over the myth it was cited in, and closing it returns there", () => {
+  const studying = after(arriving("#myth-3"), {
+    kind: "follow",
+    route: routeOf("#study-garlic-m3"),
+  });
+  expect(studying).toMatchObject({ reading: 3, studying: "garlic" });
+  expect(fragmentOf(studying)).toBe("study-garlic-m3");
+  const back = after(studying, { kind: "stopStudying" });
+  expect(back).toMatchObject({ reading: 3, studying: null });
+  expect(fragmentOf(back)).toBe("myth-3");
+});
+
+test("the browser's back button from a retelling lands on the myth, not on nothing", () => {
+  const state = after(
+    arriving("#myth-3"),
+    { kind: "follow", route: routeOf("#study-garlic-m3") },
+    { kind: "follow", route: routeOf("#myth-3") },
+  );
+  expect(state).toMatchObject({ reading: 3, studying: null });
+});
+
+test("a shared link to a retelling opens it, with its myth underneath when the link names one", () => {
+  expect(arriving("#study-garlic-m3")).toMatchObject({
+    view: "list",
+    reading: 3,
+    studying: "garlic",
+  });
+  expect(arriving("#study-garlic")).toMatchObject({
+    view: "list",
+    reading: null,
+    studying: "garlic",
+  });
+});
+
+test("a link to a retelling that does not exist opens nothing", () => {
+  expect(arriving("#study-bare").studying).toBeNull();
+  expect(arriving("#study-nothing").studying).toBeNull();
 });

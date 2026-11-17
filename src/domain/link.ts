@@ -6,7 +6,9 @@ export type Route =
   | { readonly kind: "home" }
   | { readonly kind: "list" }
   /** `tokens` is the selection the link was shared with, or empty when it carried none. */
-  | { readonly kind: "myth"; readonly id: number; readonly tokens: string };
+  | { readonly kind: "myth"; readonly id: number; readonly tokens: string }
+  /** The retelling of one source, and the myth it was opened from, if any. */
+  | { readonly kind: "study"; readonly id: string; readonly myth: number | null };
 
 const sections: readonly Section[] = ["cause", "treat"];
 const risks: readonly Exclude<RiskFilter, "all">[] = ["danger"];
@@ -57,10 +59,18 @@ export const selectionFromTokens = (tokens: string, age: AgeId): Selection =>
 export const mythFragment = (id: number, selection: Selection): string =>
   `myth-${id}${selectionTokens(selection)}`;
 
+/** The fragment (without `#`) for the retelling of a source, opened from a myth or on its own. */
+export const studyFragment = (id: string, myth: number | null): string =>
+  `study-${id}${myth === null ? "" : `-m${myth}`}`;
+
 /** What a fragment (with or without its `#`) asks for; anything unrecognised is the home page. */
 export const routeOf = (fragment: string): Route => {
   const bare = fragment.replace(/^#/, "");
   const myth = /^myth-(\d+)((?:-[a-z0-9]+)*)$/.exec(bare);
   if (myth) return { kind: "myth", id: Number(myth[1]), tokens: myth[2] ?? "" };
+  const study = /^study-([a-z0-9]+)(?:-m(\d+))?$/.exec(bare);
+  if (study?.[1]) {
+    return { kind: "study", id: study[1], myth: study[2] === undefined ? null : Number(study[2]) };
+  }
   return bare === "myths" ? { kind: "list" } : { kind: "home" };
 };

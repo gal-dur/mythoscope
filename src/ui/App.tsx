@@ -1,5 +1,6 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { myths } from "../data/myths";
+import { loadStudy, pictureUrl } from "../data/studies";
 import { mythFragment, routeOf } from "../domain/link";
 import { select } from "../domain/select";
 import { type AgeId, ageIds, type Myth, type Section } from "../domain/types";
@@ -10,6 +11,7 @@ import { initialState, type Notice, nextStateOver, type State } from "../state/s
 import { Home } from "./branches/Home";
 import { MythList } from "./branches/MythList";
 import { Reader } from "./branches/Reader";
+import { Study } from "./branches/Study";
 import { Toolbar } from "./branches/Toolbar";
 import { useAfter } from "./leaves/useAfter";
 
@@ -18,6 +20,8 @@ const nextState = nextStateOver(myths);
 const sizeOf = (section: Section): number =>
   myths.filter((myth) => myth.section === section).length;
 const sectionSizes = { cause: sizeOf("cause"), treat: sizeOf("treat") };
+
+const cited = myths.flatMap((myth) => myth.sources);
 
 const rememberedAge = (): AgeId | null => {
   const age = remembered("age");
@@ -66,6 +70,21 @@ export const App = () => {
   );
   useAfter(state.cameFrom, markMs, () => dispatch({ kind: "forgetCameFrom" }));
 
+  // Loaded text is a cache keyed by the source, not state: the reducer only says which is open.
+  const [retellings, setRetellings] = useState<Readonly<Record<string, string>>>({});
+  const studying = state.studying;
+  const studied = cited.find((source) => source.id === studying) ?? null;
+  useEffect(() => {
+    if (studying === null) return;
+    let wanted = true;
+    loadStudy(studying).then((text) => {
+      if (wanted && text !== null) setRetellings((known) => ({ ...known, [studying]: text }));
+    });
+    return () => {
+      wanted = false;
+    };
+  }, [studying]);
+
   const notify = (notice: Notice) => dispatch({ kind: "notify", notice });
   const copyLink = async ({ id }: Myth) => {
     const { origin, pathname } = window.location;
@@ -98,7 +117,15 @@ export const App = () => {
           </main>
         </>
       )}
-      {state.reading !== null && (
+      {studied !== null && (
+        <Study
+          source={studied}
+          text={retellings[studied.id] ?? null}
+          pictureOf={pictureUrl}
+          onEvent={dispatch}
+        />
+      )}
+      {studied === null && state.reading !== null && (
         <Reader
           listed={listed}
           reading={state.reading}

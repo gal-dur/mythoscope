@@ -46,3 +46,12 @@ src/
 
 Every push to `main` runs `.github/workflows/pages.yml`: the same checks as `task check`, in the
 same image, then `dist/` goes to GitHub Pages at <https://mythoscope.ch/>.
+
+## Studies retold
+
+Each source a myth cites can have a plain-words retelling in `studies/<source key>.md`, with an
+optional picture beside it (`studies/<source key>.webp`). A source that has one opens it in the
+app in place of the external link, and the retelling ends with the link to the original.
+
+Every retelling has the same sections in the same order; `src/data/studies.test.ts` names them
+and fails the build on a file that differs. A retelling states only what its source states.

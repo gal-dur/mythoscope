@@ -6,6 +6,7 @@ import {
   prevalenceLabels,
   sectionLabels,
 } from "../../domain/labels";
+import { studyFragment } from "../../domain/link";
 import { danger } from "../../domain/risk";
 import { type AgeId, ageIds, type Myth } from "../../domain/types";
 import type { Notice } from "../../state/state";
@@ -146,9 +147,13 @@ export const MythCard = ({ myth, age, notice, onPickAge, onCopyLink, onCopyMessa
             <ol className="src">
               {myth.sources.map((source) => (
                 <li key={source.url}>
-                  <a href={source.url} target="_blank" rel="noopener">
-                    {source.title}
-                  </a>
+                  {source.study ? (
+                    <a href={`#${studyFragment(source.id, myth.id)}`}>{source.title}</a>
+                  ) : (
+                    <a href={source.url} target="_blank" rel="noopener">
+                      {source.title}
+                    </a>
+                  )}
                 </li>
               ))}
             </ol>

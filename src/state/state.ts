@@ -26,6 +26,8 @@ export interface State extends Selection {
   readonly reading: number | null;
   /** The myth the reader just came back from, marked in the list for a moment. */
   readonly cameFrom: number | null;
+  /** The source whose retelling is on screen, over the myth it was opened from. */
+  readonly studying: string | null;
   readonly notice: Notice | null;
 }
 
@@ -42,6 +44,7 @@ export type Event =
   | { readonly kind: "closeFilters" }
   | { readonly kind: "read"; readonly id: number }
   | { readonly kind: "stopReading" }
+  | { readonly kind: "stopStudying" }
   | { readonly kind: "follow"; readonly route: Route }
   | { readonly kind: "notify"; readonly notice: Notice }
   | { readonly kind: "dismissNotice" }
@@ -71,17 +74,27 @@ const stopReading = (state: State): State =>
     ? state
     : { ...state, reading: null, cameFrom: state.reading, notice: null };
 
-const follow = (myths: Myths, state: State, route: Route): State =>
-  match(route)
-    .with({ kind: "home" }, () => ({ ...stopReading(state), view: "home" as const }))
-    .with({ kind: "list" }, () => ({ ...stopReading(state), view: "list" as const }))
+const retold = (myths: Myths, id: string): boolean =>
+  myths.some((myth) => myth.sources.some((source) => source.id === id && source.study));
+
+const follow = (myths: Myths, state: State, route: Route): State => {
+  const closed: State = state.studying === null ? state : { ...state, studying: null };
+  return match(route)
+    .with({ kind: "home" }, () => ({ ...stopReading(closed), view: "home" as const }))
+    .with({ kind: "list" }, () => ({ ...stopReading(closed), view: "list" as const }))
     .with({ kind: "myth" }, ({ id, tokens }) => {
-      if (id === state.reading || !myths.some((myth) => myth.id === id)) return state;
+      if (id === state.reading || !myths.some((myth) => myth.id === id)) return closed;
       const selected =
-        tokens === "" ? state : { ...state, ...selectionFromTokens(tokens, state.age) };
+        tokens === "" ? closed : { ...closed, ...selectionFromTokens(tokens, state.age) };
       return read(myths, selected, id);
     })
+    .with({ kind: "study" }, ({ id, myth }) => {
+      if (!retold(myths, id)) return state;
+      const under = myth === null || myth === state.reading ? state : read(myths, state, myth);
+      return { ...under, view: "list" as const, studying: id, notice: null };
+    })
     .exhaustive();
+};
 
 /** While a myth is being read it must be one the selection lists: else the first, else none. */
 const settle = (myths: Myths, state: State): State => {
@@ -111,6 +124,7 @@ export const nextStateOver =
         .with({ kind: "closeFilters" }, () => ({ ...state, filtersOpen: false }))
         .with({ kind: "read" }, ({ id }) => read(myths, state, id))
         .with({ kind: "stopReading" }, () => stopReading(state))
+        .with({ kind: "stopStudying" }, () => ({ ...state, studying: null }))
         .with({ kind: "follow" }, ({ route }) => follow(myths, state, route))
         .with({ kind: "notify" }, ({ notice }) => ({ ...state, notice }))
         .with({ kind: "dismissNotice" }, () => ({ ...state, notice: null }))
@@ -128,6 +142,7 @@ export const initialState = (myths: Myths, arrival: Arrival): State => {
     filtersOpen: false,
     reading: null,
     cameFrom: null,
+    studying: null,
     notice: null,
   };
   return arrival.route.kind === "home"

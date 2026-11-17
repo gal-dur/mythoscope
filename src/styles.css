@@ -785,3 +785,57 @@ footer a {
 .check.none {
   color: var(--muted);
 }
+
+.studybody {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.prose {
+  padding-top: 18px;
+  padding-bottom: 48px;
+  line-height: 1.6;
+}
+.prose h1 {
+  font-family: var(--display);
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+.prose h2 {
+  font-size: 20px;
+  margin: 28px 0 8px;
+}
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 12px;
+}
+.prose ul,
+.prose ol {
+  padding-left: 22px;
+}
+.prose li {
+  margin-bottom: 6px;
+}
+.prose img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin: 14px 0;
+}
+.prose blockquote {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: var(--card);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+}
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+.prose em {
+  color: var(--muted);
+}
