@@ -46,7 +46,7 @@ test("every retelling ends by leading to the original, and says when it was chec
     const original = text.slice(text.indexOf("## Оригинал"));
     const id = file.replace(/\.md$/, "") as keyof typeof sources;
     expect(original, file).toContain(`](${sources[id].url})`);
-    expect(original, file).toMatch(/Пересказ сверен с .+ \d{1,2} \S+ \d{4} года\./);
+    expect(original, file).toMatch(/Пересказ сверен со? .+ \d{1,2} \S+ \d{4} года\./);
   }
 });
 
