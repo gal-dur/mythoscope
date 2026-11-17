@@ -178,6 +178,11 @@ section {
   color: var(--muted);
   margin: 8px 0 0;
 }
+.airway p.intro {
+  font-size: inherit;
+  color: inherit;
+  margin: 0 0 8px;
+}
 .cards {
   display: flex;
   flex-direction: column;
