@@ -36,6 +36,12 @@ tasks:
     cmds:
       - "{{.RUN}} {{.IMAGE}} biome check --write ."
 
+  links:
+    desc: "Open every cited source and report dead, moved and blocked links: task links -- [key…]"
+    deps: [image]
+    cmds:
+      - "{{.RUN}} {{.IMAGE}} node scripts/check-links.ts {{.CLI_ARGS}}"
+
   build:
     desc: The static site in dist/
     deps: [image]

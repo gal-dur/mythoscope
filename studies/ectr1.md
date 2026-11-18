@@ -59,6 +59,6 @@ _Памятка · 2020 год · Великобритания (Стивенид
 
 ## Оригинал
 
-[Shah, Peace, Sawant. Cervical Ectropion. Patient Information. East and North Hertfordshire NHS Trust, 2020](https://www.enherts-tr.nhs.uk/content/uploads/2020/11/Cervical-Ectropion-v1-10.2020.pdf)
+[Shah, Peace, Sawant. Cervical Ectropion. Patient Information. East and North Hertfordshire NHS Trust, 2020](https://www.enherts-tr.nhs.uk/wp-content/uploads/2020/11/Cervical-Ectropion-v1-10.2020.pdf)
 
 Пересказ сверен с полным текстом документа 17 ноября 2026 года.

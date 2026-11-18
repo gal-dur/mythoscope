@@ -72,6 +72,6 @@ _Памятка · 2022 год · Великобритания (Глазго) ·
 
 ## Оригинал
 
-[Royal Hospital for Children Glasgow. Sore throat, 2022](https://rhc.nhsggc.org.uk/home/about-your-childs-health-information-resources/concerned-your-child-is-unwell-3-months-and-older/sore-throat)
+[Royal Hospital for Children Glasgow. Sore throat, 2022](https://rhc.nhsggc.org.uk/royal-hospital-for-children-for-patients-carers-visitors/about-your-childs-health-information-resources/concerned-your-child-is-unwell-3-months-and-older/sore-throat/)
 
 Пересказ сверен с полным текстом памятки на сайте больницы 17 ноября 2026 года.

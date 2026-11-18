@@ -60,6 +60,6 @@ _Памятка · 2014 год · США (Мэриленд) · Мэриленд�
 
 ## Оригинал
 
-[Kishk O. A. Hydrogen Peroxide Ingestions. ToxTidbits, Maryland Poison Center, March 2014](https://www.mdpoison.com/media/SOP/mdpoisoncom/ToxTidbits/2014/March2014ToxTidbits.pdf)
+[Kishk O. A. Hydrogen Peroxide Ingestions. ToxTidbits, Maryland Poison Center, March 2014](https://web.archive.org/web/20250907181313/https://mdpoison.com/media/SOP/mdpoisoncom/ToxTidbits/2014/March2014ToxTidbits.pdf)
 
 Пересказ сверен с полным текстом документа 17 ноября 2026 года.

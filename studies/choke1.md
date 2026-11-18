@@ -72,6 +72,6 @@ _Памятка · 2019 год · Великобритания (Уэльс) · �
 
 ## Оригинал
 
-[NHS 111 Wales. Choking. NHS 111 Wales, 2019](https://111.wales.nhs.uk/choking)
+[NHS 111 Wales. Choking. NHS 111 Wales, 2019](https://web.archive.org/web/20201125143201/https://111.wales.nhs.uk/encyclopaedia/ch/article/choking)
 
 Пересказ сверен с архивной копией страницы NHS 111 Wales от ноября 2020 года 17 ноября 2026 года.

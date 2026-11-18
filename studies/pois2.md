@@ -66,6 +66,6 @@ _Памятка · 2021 год · Великобритания (Шотланди
 
 ## Оригинал
 
-[Royal Hospital for Children Glasgow. Poisoning. NHS Greater Glasgow and Clyde, 2021](https://rhc.nhsggc.org.uk/home/about-your-childs-health-information-resources/concerned-about-accidents-and-injuries/poisoning)
+[Royal Hospital for Children Glasgow. Poisoning. NHS Greater Glasgow and Clyde, 2021](https://rhc.nhsggc.org.uk/royal-hospital-for-children-for-patients-carers-visitors/about-your-childs-health-information-resources/concerned-about-accidents-and-injuries/poisoning/)
 
 Пересказ сверен с полным текстом страницы на новом адресе того же сайта 17 ноября 2026 года.

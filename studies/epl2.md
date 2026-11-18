@@ -68,6 +68,6 @@ _Памятка · 2026 год · Великобритания · отрасле
 
 ## Оригинал
 
-[Pharmafile. Study suggests phospholipid therapy may impact fatty liver disease outcomes. Pharmafile, 2026](https://pharmafile.com/?p=42882)
+[Pharmafile. Study suggests phospholipid therapy may impact fatty liver disease outcomes. Pharmafile, 2026](https://pharmafile.com/news/study-suggests-phospholipid-therapy-may-impact-fatty-liver-disease-outcomes/)
 
 Пересказ сверен с полным текстом новости 17 ноября 2026 года.

@@ -62,6 +62,6 @@ _Памятка · 2026 год · США · Американское онкол�
 
 ## Оригинал
 
-[American Cancer Society. HPV (Human Papillomavirus). American Cancer Society, 2026](https://www.cancer.org/cancer/risk-prevention/hpv/what-is-hpv.html)
+[American Cancer Society. HPV (Human Papillomavirus). American Cancer Society, 2026](https://www.cancer.org/cancer/risk-prevention/hpv.html)
 
 Пересказ сверен с полным текстом страницы 17 ноября 2026 года.

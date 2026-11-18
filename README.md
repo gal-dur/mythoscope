@@ -16,6 +16,7 @@ Everything runs in one container (podman); nothing is installed on the host but
 | `task check`                 | Lint and format check, typecheck, tests, production build  |
 | `task fmt`                   | Formats and applies the safe lint fixes                    |
 | `task build`                 | The static site in `dist/`                                 |
+| `task links -- [key…]`       | Opens every cited source: dead, moved and blocked links    |
 | `task add -- [-D] <package>` | Adds a dependency at its latest release, pinned exactly    |
 
 ## How it is built

@@ -72,6 +72,6 @@ _Рекомендации · 2022 год · США · Международный
 
 ## Оригинал
 
-[International Hip Dysplasia Institute. Swaddling Education и IHDI Position Statement on Hip-Healthy Swaddling](https://hipdysplasia.org/swaddling/)
+[International Hip Dysplasia Institute. Swaddling Education и IHDI Position Statement on Hip-Healthy Swaddling](https://hipdysplasia.org/swaddling-education/)
 
 Пересказ сверен с полным текстом страницы института 17 ноября 2026 года.

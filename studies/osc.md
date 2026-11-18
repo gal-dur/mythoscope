@@ -69,6 +69,6 @@ _Обзор · 2015 год · испытания из России, Франци
 
 ## Оригинал
 
-[Mathie R. T., Frye J., Fisher P. Homeopathic Oscillococcinum® for preventing and treating influenza and influenza-like illness. Cochrane Database of Systematic Reviews, 2015](https://www.cochrane.org/CD001957/ARI_homeopathic-oscillococcinumr-preventing-and-treating-influenza)
+[Mathie R. T., Frye J., Fisher P. Homeopathic Oscillococcinum® for preventing and treating influenza and influenza-like illness. Cochrane Database of Systematic Reviews, 2015](https://www.cochrane.org/evidence/CD001957_homeopathic-oscillococcinumr-preventing-and-treating-influenza-and-influenza-illness)
 
 Пересказ сверен с аннотацией обзора и кратким изложением на сайте Кокрейна (полный текст закрыт) 17 ноября 2026 года.

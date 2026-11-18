@@ -78,6 +78,6 @@ _Памятка · 2026 год · США · MedlinePlus, Национальна�
 
 ## Оригинал
 
-[MedlinePlus. Snake bites. U.S. National Library of Medicine, 2026](https://nlm.nih.gov/medlineplus/ency/article/000031.htm)
+[MedlinePlus. Snake bites. U.S. National Library of Medicine, 2026](https://medlineplus.gov/ency/article/000031.htm)
 
 Пересказ сверен с полным текстом страницы MedlinePlus 17 ноября 2026 года.

@@ -47,7 +47,7 @@ export const sources = {
   },
   ihdi: {
     title: "International Hip Dysplasia Institute, позиция по пеленанию",
-    url: "https://hipdysplasia.org/swaddling/",
+    url: "https://hipdysplasia.org/swaddling-education/",
   },
   kmn1: {
     title: "Ожог глаза кристаллами перманганата калия у ребёнка 6 лет (PMC8456250)",
@@ -55,7 +55,7 @@ export const sources = {
   },
   kmn2: {
     title: "Chirapapaisan et al., Ocular injury due to potassium permanganate granules, 2018",
-    url: "https://www.pubmed.gov/29643795/",
+    url: "https://pubmed.ncbi.nlm.nih.gov/29643795/",
   },
   msd: {
     title: "MSD Manual, Constipation in Children",
@@ -121,7 +121,7 @@ export const sources = {
   },
   cdcbot: {
     title: "CDC, профилактика ботулизма: мёд и детский ботулизм",
-    url: "https://www.cdc.gov/botulism/prevention.html",
+    url: "https://www.cdc.gov/botulism/prevention/index.html",
   },
   water1: {
     title: "Consultant360, Do Infants Need to Drink Water? (обзор рекомендаций ВОЗ и AAP)",
@@ -187,7 +187,7 @@ export const sources = {
   },
   osc: {
     title: "Cochrane, Homeopathic Oscillococcinum for preventing and treating influenza, 2015",
-    url: "https://www.cochrane.org/CD001957/ARI_homeopathic-oscillococcinumr-preventing-and-treating-influenza",
+    url: "https://www.cochrane.org/evidence/CD001957_homeopathic-oscillococcinumr-preventing-and-treating-influenza-and-influenza-illness",
   },
   nose1: {
     title: "St John Ambulance, Nosebleeds",
@@ -195,7 +195,7 @@ export const sources = {
   },
   nose2: {
     title: "Healthdirect Australia, Nosebleed",
-    url: "https://www.healthdirect.gov.au/amp/article/nosebleed",
+    url: "https://www.healthdirect.gov.au/symptoms/nosebleed",
   },
   cold1: {
     title:
@@ -212,7 +212,7 @@ export const sources = {
   },
   throat2: {
     title: "Royal Hospital for Children Glasgow, Sore throat",
-    url: "https://rhc.nhsggc.org.uk/home/about-your-childs-health-information-resources/concerned-your-child-is-unwell-3-months-and-older/sore-throat",
+    url: "https://rhc.nhsggc.org.uk/royal-hospital-for-children-for-patients-carers-visitors/about-your-childs-health-information-resources/concerned-your-child-is-unwell-3-months-and-older/sore-throat/",
   },
   heat1: {
     title: "AAP, How to Keep Your Sleeping Baby Safe",
@@ -220,7 +220,7 @@ export const sources = {
   },
   heat2: {
     title: "AAFP, AAP Expands Recommendations on SIDS (перегрев)",
-    url: "https://www.aafp.org/pubs/afp/issues/2012/0501/p918.html",
+    url: "https://www.aafp.org/afp/2012/0501/p918",
   },
   out: {
     title: "Care.com, педиатры о прогулках при простуде",
@@ -228,11 +228,11 @@ export const sources = {
   },
   vitc: {
     title: "Hemilä, Chalker. Vitamin C for preventing and treating the common cold. Cochrane, 2013",
-    url: "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC8078152/",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8078152/",
   },
   choke1: {
     title: "NHS 111 Wales, Choking",
-    url: "https://111.wales.nhs.uk/choking",
+    url: "https://web.archive.org/web/20201125143201/https://111.wales.nhs.uk/encyclopaedia/ch/article/choking",
   },
   choke2: {
     title: "American Red Cross, Adult/Child Choking",
@@ -248,7 +248,7 @@ export const sources = {
   },
   snake2: {
     title: "MedlinePlus, Snake bites",
-    url: "https://nlm.nih.gov/medlineplus/ency/article/000031.htm",
+    url: "https://medlineplus.gov/ency/article/000031.htm",
   },
   frost1: {
     title: "NHS 111 Wales, Frostbite",
@@ -264,7 +264,7 @@ export const sources = {
   },
   pois2: {
     title: "Royal Hospital for Children Glasgow, Poisoning",
-    url: "https://rhc.nhsggc.org.uk/home/about-your-childs-health-information-resources/concerned-about-accidents-and-injuries/poisoning",
+    url: "https://rhc.nhsggc.org.uk/royal-hospital-for-children-for-patients-carers-visitors/about-your-childs-health-information-resources/concerned-about-accidents-and-injuries/poisoning/",
   },
   fever: {
     title: "GPnotebook, рекомендации NICE по жаропонижающим у детей до 5 лет",
@@ -308,7 +308,7 @@ export const sources = {
   },
   h2o2b: {
     title: "Maryland Poison Center, Hydrogen Peroxide Ingestions",
-    url: "https://www.mdpoison.com/media/SOP/mdpoisoncom/ToxTidbits/2014/March2014ToxTidbits.pdf",
+    url: "https://web.archive.org/web/20250907181313/https://mdpoison.com/media/SOP/mdpoisoncom/ToxTidbits/2014/March2014ToxTidbits.pdf",
   },
   coffee: {
     title: "The safety and effectiveness of self-administered coffee enema. Medicine 2020",
@@ -344,7 +344,7 @@ export const sources = {
   },
   corv2: {
     title: "Phenobarbital, глава фармакологического справочника (Taylor & Francis)",
-    url: "https://www.taylorfrancis.com/books/9781315825748/chapters/10.4324/9781315825748-59",
+    url: "https://www.taylorfrancis.com/chapters/mono/10.4324/9781315825748-59/phenobarbital-phenobarbitone-louis-pagliaro-ann-marie-pagliaro",
   },
   drip1: {
     title: "Кандыба. Ошибки в амбулаторной неврологической практике, часть II",
@@ -369,7 +369,7 @@ export const sources = {
   },
   ectr1: {
     title: "East and North Hertfordshire NHS Trust, Cervical Ectropion",
-    url: "https://www.enherts-tr.nhs.uk/content/uploads/2020/11/Cervical-Ectropion-v1-10.2020.pdf",
+    url: "https://www.enherts-tr.nhs.uk/wp-content/uploads/2020/11/Cervical-Ectropion-v1-10.2020.pdf",
   },
   ectr2: {
     title: "NHS Lothian, Cervical ectropion",
@@ -408,7 +408,7 @@ export const sources = {
   },
   prism2: {
     title: "Miscarriage Association о рекомендациях NICE 2021 года по прогестерону",
-    url: "https://www.miscarriageassociation.org.uk/?p=121",
+    url: "https://www.miscarriageuk.org/research/the-prism-trial/",
   },
   wound1: {
     title: "NHS Wales, Cuts and grazes",
@@ -416,7 +416,7 @@ export const sources = {
   },
   wound2: {
     title: "Health New Zealand, Cuts, scrapes and wounds first aid",
-    url: "https://info.health.nz/conditions-treatments/emergencies-and-first-aid/cuts-scrapes-and-wounds-first-aid",
+    url: "https://www.healthnz.govt.nz/health-topics/tests-and-treatments/emergencies-and-first-aid/cuts-scrapes-and-wounds-first-aid",
   },
   wound3: {
     title: "Royal Children's Hospital Melbourne, Cuts, grazes and lacerations",
@@ -433,11 +433,11 @@ export const sources = {
   epl1: {
     title:
       "Veterans Affairs Cooperative Study of polyenylphosphatidylcholine in alcoholic liver disease, 2003",
-    url: "https://peeref.com/works/80562112",
+    url: "https://pubmed.ncbi.nlm.nih.gov/14634492/",
   },
   epl2: {
     title: "Pharmafile об исследовании EXCEL при жировой болезни печени, 2026",
-    url: "https://pharmafile.com/?p=42882",
+    url: "https://pharmafile.com/news/study-suggests-phospholipid-therapy-may-impact-fatty-liver-disease-outcomes/",
   },
   igg1: {
     title: "CSACI Position statement on the testing of food-specific IgG, 2012",
@@ -475,11 +475,11 @@ export const sources = {
   },
   hpv1: {
     title: "CDC, About Genital HPV Infection",
-    url: "https://www.cdc.gov/STD/HPV/STDFact-HPV.htm",
+    url: "https://www.cdc.gov/sti/about/about-genital-hpv-infection.html",
   },
   hpv2: {
     title: "American Cancer Society, HPV (Human Papillomavirus)",
-    url: "https://www.cancer.org/cancer/risk-prevention/hpv/what-is-hpv.html",
+    url: "https://www.cancer.org/cancer/risk-prevention/hpv.html",
   },
   us1: {
     title: "Torloni et al., Safety of ultrasonography in pregnancy: WHO systematic review, 2009",
@@ -487,7 +487,7 @@ export const sources = {
   },
   us2: {
     title: "Health Feedback, разбор утверждений о вреде пренатального УЗИ",
-    url: "https://healthfeedback.org/?p=20505",
+    url: "https://science.feedback.org/review/prenatal-ultrasound-is-generally-safe-when-performed-by-trained-personnel-and-used-only-when-medically-necessary-its-benefits-outweigh-the-risks/",
   },
   fe2: {
     title: "Памятка для врачей по внутривенному железу по итогам процедуры EMA (HPRA)",

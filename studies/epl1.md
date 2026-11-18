@@ -65,6 +65,6 @@ _Исследование · 2003 год · США · 20 госпиталей д
 
 ## Оригинал
 
-[Lieber C. S., Weiss D. G., Groszmann R. и соавт. Veterans Affairs Cooperative Study of polyenylphosphatidylcholine in alcoholic liver disease. Alcoholism: Clinical and Experimental Research, 2003](https://peeref.com/works/80562112)
+[Lieber C. S., Weiss D. G., Groszmann R. и соавт. Veterans Affairs Cooperative Study of polyenylphosphatidylcholine in alcoholic liver disease. Alcoholism: Clinical and Experimental Research, 2003](https://pubmed.ncbi.nlm.nih.gov/14634492/)
 
 Пересказ сверен с аннотацией статьи (полный текст закрыт) 17 ноября 2026 года.

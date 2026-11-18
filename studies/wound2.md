@@ -74,6 +74,6 @@ _Памятка · 2026 год · Новая Зеландия · государ�
 
 ## Оригинал
 
-[Health New Zealand. Cuts, scrapes and wounds first aid. info.health.nz, 2026](https://info.health.nz/conditions-treatments/emergencies-and-first-aid/cuts-scrapes-and-wounds-first-aid)
+[Health New Zealand. Cuts, scrapes and wounds first aid. info.health.nz, 2026](https://www.healthnz.govt.nz/health-topics/tests-and-treatments/emergencies-and-first-aid/cuts-scrapes-and-wounds-first-aid)
 
 Пересказ сверен с полным текстом страницы 17 ноября 2026 года.

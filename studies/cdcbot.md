@@ -67,6 +67,6 @@ CDC пишет прямо: к сожалению, большинство слу�
 
 ## Оригинал
 
-[CDC. Botulism Prevention. Centers for Disease Control and Prevention, 2026](https://www.cdc.gov/botulism/prevention.html)
+[CDC. Botulism Prevention. Centers for Disease Control and Prevention, 2026](https://www.cdc.gov/botulism/prevention/index.html)
 
 Пересказ сверен с текстом страницы CDC (копия в веб-архиве, снята 16 ноября 2026 года) 17 ноября 2026 года.

@@ -88,6 +88,6 @@ Healthdirect Australia: справочная служба о здоровье, �
 
 ## Оригинал
 
-[Healthdirect Australia. Nosebleed, 2025](https://www.healthdirect.gov.au/amp/article/nosebleed)
+[Healthdirect Australia. Nosebleed, 2025](https://www.healthdirect.gov.au/symptoms/nosebleed)
 
 Пересказ сверен с полным текстом страницы Healthdirect Australia 17 ноября 2026 года.

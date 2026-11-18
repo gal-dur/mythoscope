@@ -63,6 +63,6 @@ _Обзор · 2013 год · Финляндия (Хельсинки) и Авс�
 
 ## Оригинал
 
-[Hemilä H., Chalker E. Vitamin C for preventing and treating the common cold. Cochrane Database of Systematic Reviews, 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC8078152/)
+[Hemilä H., Chalker E. Vitamin C for preventing and treating the common cold. Cochrane Database of Systematic Reviews, 2013](https://pmc.ncbi.nlm.nih.gov/articles/PMC8078152/)
 
 Пересказ сверен с аннотацией статьи (полный текст закрыт) 17 ноября 2026 года.

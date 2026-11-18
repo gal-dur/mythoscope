@@ -62,6 +62,6 @@ CDC, главное ведомство здравоохранения США п�
 
 ## Оригинал
 
-[Centers for Disease Control and Prevention. About Genital HPV Infection. CDC, 2025](https://www.cdc.gov/STD/HPV/STDFact-HPV.htm)
+[Centers for Disease Control and Prevention. About Genital HPV Infection. CDC, 2025](https://www.cdc.gov/sti/about/about-genital-hpv-infection.html)
 
 Пересказ сверен с текстом страницы CDC 17 ноября 2026 года.

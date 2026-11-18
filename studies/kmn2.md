@@ -59,6 +59,6 @@ _Исследование · 2018 год · Таиланд (Бангкок) · �
 
 ## Оригинал
 
-[Chirapapaisan C., Prabhasawat P., Srivannaboon S., Roongpoovapatr V., Chitsuthipakorn P. Ocular Injury due to Potassium Permanganate Granules. Case Reports in Ophthalmology, 2018](https://www.pubmed.gov/29643795/)
+[Chirapapaisan C., Prabhasawat P., Srivannaboon S., Roongpoovapatr V., Chitsuthipakorn P. Ocular Injury due to Potassium Permanganate Granules. Case Reports in Ophthalmology, 2018](https://pubmed.ncbi.nlm.nih.gov/29643795/)
 
 Пересказ сверен с полным текстом статьи 17 ноября 2026 года.

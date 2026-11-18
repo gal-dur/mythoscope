@@ -70,6 +70,6 @@ _Рекомендации · 2012 год · США · Американская �
 
 ## Оригинал
 
-[Devitt M. AAP Expands Recommendations on SIDS and Other Sleep-Related Deaths. American Family Physician, 2012](https://www.aafp.org/pubs/afp/issues/2012/0501/p918.html)
+[Devitt M. AAP Expands Recommendations on SIDS and Other Sleep-Related Deaths. American Family Physician, 2012](https://www.aafp.org/afp/2012/0501/p918)
 
 Пересказ сверен с полным текстом статьи 17 ноября 2026 года.

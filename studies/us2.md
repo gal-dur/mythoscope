@@ -65,6 +65,6 @@ _Памятка · 2021 год · интернет-издание · прове�
 
 ## Оригинал
 
-[Health Feedback. Prenatal ultrasound is generally safe when performed by trained personnel and used only when medically necessary; its benefits outweigh the risks, 2021](https://healthfeedback.org/?p=20505)
+[Health Feedback. Prenatal ultrasound is generally safe when performed by trained personnel and used only when medically necessary; its benefits outweigh the risks, 2021](https://science.feedback.org/review/prenatal-ultrasound-is-generally-safe-when-performed-by-trained-personnel-and-used-only-when-medically-necessary-its-benefits-outweigh-the-risks/)
 
 Пересказ сверен с полным текстом статьи 17 ноября 2026 года.

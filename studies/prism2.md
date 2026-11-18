@@ -69,6 +69,6 @@ NICE также просит дальше изучать, помогает ли 
 
 ## Оригинал
 
-[Miscarriage Association. The PRISM trial. miscarriageassociation.org.uk, 2021](https://www.miscarriageassociation.org.uk/?p=121)
+[Miscarriage Association. The PRISM trial. miscarriageassociation.org.uk, 2021](https://www.miscarriageuk.org/research/the-prism-trial/)
 
 Пересказ сверен с полным текстом страницы (ныне на miscarriageuk.org) 17 ноября 2026 года.
