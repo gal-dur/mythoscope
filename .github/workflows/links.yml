@@ -1,0 +1,47 @@
+# Opens every cited source once a week. When a link is dead or has moved, the report (with where
+# it could point instead) goes into the issue "Dead or moved source links" and the run fails;
+# when all links are fine again, the issue is closed.
+name: links
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TITLE: Dead or moved source links
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build the image
+        run: docker build -t mythoscope -f Containerfile .
+      - name: Check the links
+        id: check
+        run: |
+          docker run --rm --init --user "$(id -u):$(id -g)" -e HOME=/tmp \
+            -v "$PWD:/work" -w /work mythoscope \
+            node scripts/check-links.ts --report=links-report.md && bad=0 || bad=1
+          cat links-report.md >> "$GITHUB_STEP_SUMMARY"
+          echo "bad=$bad" >> "$GITHUB_OUTPUT"
+      - name: Report in an issue
+        run: |
+          number=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --jq '.[0].number // empty')
+          if [ "${{ steps.check.outputs.bad }}" = 1 ]; then
+            if [ -n "$number" ]; then
+              gh issue edit "$number" --body-file links-report.md
+            else
+              gh issue create --title "$TITLE" --body-file links-report.md
+            fi
+          elif [ -n "$number" ]; then
+            gh issue close "$number" --comment "Every cited link answers again."
+          fi
+      - name: Fail when a link is dead or moved
+        if: steps.check.outputs.bad == '1'
+        run: exit 1

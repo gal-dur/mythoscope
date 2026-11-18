@@ -48,6 +48,13 @@ src/
 Every push to `main` runs `.github/workflows/pages.yml`: the same checks as `task check`, in the
 same image, then `dist/` goes to GitHub Pages at <https://mythoscope.ch/>.
 
+## Cited links
+
+`task links` opens every source in `src/data/sources.ts` and sorts it into ok, moved, blocked
+(the site refuses automated visitors) or dead. `.github/workflows/links.yml` runs it every Monday:
+when a link is dead or moved, the report, with where the link could point instead, goes into the
+issue "Dead or moved source links" and the run fails; the issue closes once all links answer.
+
 ## Studies retold
 
 Each source a myth cites can have a plain-words retelling in `studies/<source key>.md`, with an

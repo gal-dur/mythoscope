@@ -8,6 +8,12 @@
 //            was not found
 //
 // Exits 1 when any link is dead or moved; blocked links are listed and do not fail the run.
+//
+//   task links -- [key…] [--report=links-report.md]
+//
+// With --report it also writes the findings as markdown, with where each dead or moved link
+// could point instead: the address it now redirects to, or its latest web-archive copy.
+import { writeFileSync } from "node:fs";
 import { sources } from "../src/data/sources.ts";
 
 type Verdict = "ok" | "moved" | "blocked" | "dead";
@@ -94,7 +100,73 @@ const visitAll = async (entries: readonly (readonly [string, string])[]): Promis
   return results;
 };
 
-const only = process.argv.slice(2);
+/** The latest copy the web archive holds of an address, or null when it holds none. */
+const archived = async (url: string): Promise<string | null> => {
+  if (new URL(url).hostname === "web.archive.org") return null;
+  try {
+    const answer = await fetch(
+      `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`,
+      { signal: AbortSignal.timeout(30_000) },
+    );
+    const found: unknown = await answer.json();
+    const copy = /"url":\s*"(https?:\/\/web\.archive\.org\/[^"]+)"/.exec(JSON.stringify(found));
+    return copy?.[1]?.replace(/^http:/, "https:") ?? null;
+  } catch {
+    return null;
+  }
+};
+
+const titles: Readonly<Record<string, { readonly title: string }>> = sources;
+const cell = (text: string): string => text.replace(/\|/g, "\\|");
+const row = (result: Result, last: string): string =>
+  `| \`${result.key}\` | ${cell(titles[result.key]?.title ?? "")} | ${result.url} | ${last} |`;
+
+const reportOf = async (results: readonly Result[], summary: string): Promise<string> => {
+  const of = (verdict: Verdict): Result[] =>
+    results
+      .filter((result) => result.verdict === verdict)
+      .sort((a, b) => a.key.localeCompare(b.key));
+  const dead = await Promise.all(
+    of("dead").map(async (result) => {
+      const copy = await archived(result.url);
+      return row(result, `${cell(result.note)} | ${copy ?? "no archived copy found"}`);
+    }),
+  );
+  const lines = ["# Cited links", "", summary, ""];
+  if (dead.length > 0) {
+    lines.push("## Dead", "", "| Source | Title | Cited address | Problem | Could point at |");
+    lines.push("|---|---|---|---|---|", ...dead, "");
+  }
+  if (of("moved").length > 0) {
+    lines.push("## Moved", "", "| Source | Title | Cited address | Now redirects to |");
+    lines.push("|---|---|---|---|", ...of("moved").map((result) => row(result, result.note)), "");
+  }
+  if (of("blocked").length > 0) {
+    lines.push(
+      "## Blocked: check by hand",
+      "",
+      "<details><summary>These sites refuse automated visitors</summary>",
+      "",
+    );
+    lines.push("| Source | Title | Cited address | Answer |", "|---|---|---|---|");
+    lines.push(
+      ...of("blocked").map((result) => row(result, cell(result.note))),
+      "",
+      "</details>",
+      "",
+    );
+  }
+  lines.push(
+    "To fix one: change its `url` in `src/data/sources.ts` and the link under «Оригинал» in",
+    "`studies/<source>.md`, then run `task links -- <source>`.",
+    "",
+  );
+  return lines.join("\n");
+};
+
+const args = process.argv.slice(2);
+const reportPath = args.find((arg) => arg.startsWith("--report="))?.slice("--report=".length);
+const only = args.filter((arg) => !arg.startsWith("--"));
 const entries = Object.entries(sources)
   .filter(([key]) => only.length === 0 || only.includes(key))
   .map(([key, source]) => [key, source.url] as const);
@@ -102,7 +174,7 @@ const entries = Object.entries(sources)
 const results = await visitAll(entries);
 const count = (verdict: Verdict): number =>
   results.filter((result) => result.verdict === verdict).length;
-console.log(
-  `\n${results.length} links: ${count("ok")} ok, ${count("moved")} moved, ${count("blocked")} blocked, ${count("dead")} dead`,
-);
+const summary = `${results.length} links: ${count("ok")} ok, ${count("moved")} moved, ${count("blocked")} blocked, ${count("dead")} dead`;
+console.log(`\n${summary}`);
+if (reportPath !== undefined) writeFileSync(reportPath, await reportOf(results, summary));
 process.exitCode = count("dead") + count("moved") > 0 ? 1 : 0;
